@@ -7,12 +7,26 @@
 	text-align: center;
 } h1 {
 	margin-top: 2px;
+} #board {
+	display: grid;
+	gap: 2px;
+	grid-template-columns: repeat(3, 1fr);
+	justify-self: center;
+	width: max-content;
 } .square {
+	align-items: center;
+	background-color: #efefef;
 	border: 1px solid #000;
-	display: inline-block;
+	cursor: pointer;
+	display: flex;
+	font-size: 400%;
 	height: 128px;
-	font-size: 64px;
+	justify-content: center;
 	width: 128px;
 } .square:hover {
-	color: #0000007f;
+	background-color: #fff;
+	transition: background-color .5s ease;
+} .disabled {
+	background-color: #fff;
+	cursor: default;
 }
