@@ -2,18 +2,25 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-} body {
+}
+
+body {
 	font-family: sans-serif;
 	text-align: center;
-} h1 {
+}
+
+h1 {
 	margin-top: 2px;
-} #board {
+}
+
+#board {
 	display: grid;
 	gap: 2px;
 	grid-template-columns: repeat(3, 1fr);
 	justify-self: center;
-	width: max-content;
-} .square {
+} 
+
+.square {
 	align-items: center;
 	background-color: #efefef;
 	border: 1px solid #000;
@@ -23,11 +30,25 @@
 	height: 128px;
 	justify-content: center;
 	width: 128px;
-} .square:hover {
+}
+
+.square:hover {
 	background-color: #fff;
 	transition: background-color .5s ease;
-} .disabled {
+}
+
+.disabled {
 	background-color: #fff;
 	color: unset;
 	cursor: default;
+}
+
+.scoreText, #newGame {
+	font-size: 200%;
+	font-weight: bold;
+}
+
+#newGame {
+	border-radius: 16px;
+	padding: 8px 16px;
 }

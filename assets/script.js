@@ -1,5 +1,4 @@
 const outputLabel = document.getElementById('output');
-const board = document.getElementById('board');
 let currentPlayer, p1 = 0, p2 = 0, tie = 0, turnCount = 0;
 
 class Square {
@@ -21,12 +20,9 @@ class TicTacToe {
     }
 
     checkDiag(board) {
-
         if (board[0][0].value === board[1][1].value && board[1][1].value === board[2][2].value && board[0][0].value !== '') {
             return true;
-        }
-
-        if (board[0][2].value === board[1][1].value && board[1][1].value === board[2][0].value && board[0][2].value !== '') {
+        } else if (board[0][2].value === board[1][1].value && board[1][1].value === board[2][0].value && board[0][2].value !== '') {
             return true;
         }
         return false;
@@ -51,10 +47,9 @@ class TicTacToe {
     }
 }
 
-const game = new TicTacToe();
+let game = new TicTacToe();
 
 function checkWin(board, player) {
-
     if (game.checkDiag(board)) {
         outputLabel.textContent = `${player} wins by diagonal!`;
         return true;
@@ -73,11 +68,9 @@ const scoreElements = document.getElementsByClassName("score");
 function addScore(player) {
 		if (player === "X") {
 			scoreElements[0].textContent = ++p1;
-		}
-		else if (player === "O") {
+		} else if (player === "O") {
 			scoreElements[1].textContent = ++p2;
-		}
-		else scoreElements[2].textContent = ++tie;
+		} else scoreElements[2].textContent = ++tie;
 }
 
 const squareElements = Array.from(document.getElementsByClassName('square'));
@@ -88,6 +81,15 @@ function disableAll() {
 			square.className += " disabled";
   }
 }
+
+document.getElementById("newGame").addEventListener('click', () => {
+		for (const square of squareElements) {
+			square.textContent = '';
+			square.className = "square";
+			square.disabled = false;
+		}
+		game = new TicTacToe();
+});
 
 squareElements.forEach((square, index) => {
     square.addEventListener('click', () => {
@@ -110,13 +112,11 @@ squareElements.forEach((square, index) => {
         const won = checkWin(game.board, currentPlayer);
 
 				if (won) {
-					disableAll();
-					addScore(currentPlayer);
+						disableAll();
+						addScore(currentPlayer);
 				}
-
-        if (!won && ++turnCount === 9) {
+				else if (!won && ++turnCount === 9) {
             outputLabel.textContent = "It's a tie!";
-            disableAll();
 						addScore("tie");
         }
     });
