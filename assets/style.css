@@ -1,4 +1,46 @@
 * {
+<<<<<<< HEAD
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html {
+    background-color: #0072BB;
+}
+body {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+h1 {
+    margin: 16px 0;
+}
+
+#board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4px;
+    width: max-content;   
+    margin: 20px auto;    
+}
+
+.square {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    font-size: 300%;
+    cursor: pointer; 
+    width: 128px;
+    height: 128px;
+    background-color: #f0f0f0;
+    border-radius: 80px;
+}
+
+.square:hover {
+    background-color: #FFFFFF;
+    transition: background-color 0.5s ease;
+=======
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
@@ -15,4 +57,5 @@
 	width: 128px;
 } .square:hover {
 	color: #0000007f;
+>>>>>>> 77c1d046a8aed22b66f8e99060974b55ff49c732
 }
