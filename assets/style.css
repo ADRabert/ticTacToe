@@ -1,4 +1,5 @@
 * {
+<<<<<<< HEAD
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -39,4 +40,22 @@ h1 {
 .square:hover {
     background-color: #FFFFFF;
     transition: background-color 0.5s ease;
+=======
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+} body {
+	font-family: sans-serif;
+	text-align: center;
+} h1 {
+	margin-top: 2px;
+} .square {
+	border: 1px solid #000;
+	display: inline-block;
+	height: 128px;
+	font-size: 64px;
+	width: 128px;
+} .square:hover {
+	color: #0000007f;
+>>>>>>> 77c1d046a8aed22b66f8e99060974b55ff49c732
 }
