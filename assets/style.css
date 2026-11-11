@@ -28,5 +28,6 @@
 	transition: background-color .5s ease;
 } .disabled {
 	background-color: #fff;
+	color: unset;
 	cursor: default;
 }

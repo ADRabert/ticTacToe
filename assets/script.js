@@ -82,6 +82,13 @@ function addScore(player) {
 
 const squareElements = Array.from(document.getElementsByClassName('square'));
 
+function disableAll() {
+	for (const square of squareElements) {
+      square.disabled = true;
+			square.className += " disabled";
+  }
+}
+
 squareElements.forEach((square, index) => {
     square.addEventListener('click', () => {
         const row = Math.floor(index / 3);
@@ -97,19 +104,19 @@ squareElements.forEach((square, index) => {
 
         square.textContent = currentPlayer;
         game.board[row][col].set(currentPlayer);
+				square.className += " disabled";
+				square.disabled = true;
 
         const won = checkWin(game.board, currentPlayer);
 
 				if (won) {
+					disableAll();
 					addScore(currentPlayer);
 				}
-        turnCount++;
 
-        if (!won && turnCount === 9) {
+        if (!won && ++turnCount === 9) {
             outputLabel.textContent = "It's a tie!";
-            for (const square of squareElements) {
-                square.disabled = true;
-            }
+            disableAll();
 						addScore("tie");
         }
     });
