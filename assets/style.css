@@ -1,54 +1,54 @@
 * {
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
 }
 
 body {
-	font-family: sans-serif;
-	text-align: center;
+		font-family: sans-serif;
+		text-align: center;
 }
 
 h1 {
-	margin-top: 2px;
+		margin-top: 2px;
 }
 
 #board {
-	display: grid;
-	gap: 2px;
-	grid-template-columns: repeat(3, 1fr);
-	justify-self: center;
+		display: grid;
+		gap: 2px;
+		grid-template-columns: repeat(3, 1fr);
+		justify-self: center;
 } 
 
 .square {
-	align-items: center;
-	background-color: #efefef;
-	border: 1px solid #000;
-	cursor: pointer;
-	display: flex;
-	font-size: 400%;
-	height: 128px;
-	justify-content: center;
-	width: 128px;
+		align-items: center;
+		background-color: #efefef;
+		border: 1px solid #000;
+		cursor: pointer;
+		display: flex;
+		font-size: 400%;
+		height: 128px;
+		justify-content: center;
+		width: 128px;
 }
 
 .square:hover {
-	background-color: #fff;
-	transition: background-color .5s ease;
+		background-color: #fff;
+		transition: background-color .5s ease;
 }
 
 .disabled {
-	background-color: #fff;
-	color: unset;
-	cursor: default;
+		background-color: #fff;
+		color: unset;
+		cursor: default;
 }
 
 .scoreText, #newGame {
-	font-size: 200%;
-	font-weight: bold;
+		font-size: 200%;
+		font-weight: bold;
 }
 
 #newGame {
-	border-radius: 16px;
-	padding: 8px 16px;
+		border-radius: 16px;
+		padding: 8px 16px;
 }

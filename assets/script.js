@@ -82,7 +82,9 @@ function disableAll() {
   }
 }
 
-document.getElementById("newGame").addEventListener('click', () => {
+const newGameButton = document.getElementById("newGame");
+newGameButton.addEventListener('click', () => {
+		newGameButton.style.display = "none";
 		for (const square of squareElements) {
 			square.textContent = '';
 			square.className = "square";
@@ -114,10 +116,12 @@ squareElements.forEach((square, index) => {
 				if (won) {
 						disableAll();
 						addScore(currentPlayer);
+						newGameButton.removeAttribute("style");
 				}
 				else if (!won && ++turnCount === 9) {
             outputLabel.textContent = "It's a tie!";
 						addScore("tie");
+						newGameButton.removeAtrribute("style");
         }
     });
 });
