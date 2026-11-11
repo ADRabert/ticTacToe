@@ -11,5 +11,8 @@
 	border: 1px solid #000;
 	display: inline-block;
 	height: 128px;
+	font-size: 64px;
 	width: 128px;
+} .square:hover {
+	color: #0000007f;
 }
