@@ -1,5 +1,8 @@
-const outputLabel = document.getElementById('output');
-let currentPlayer, p1 = 0, p2 = 0, tie = 0, turnCount = 0;
+const outputLabel = document.getElementById('output'), scoreElements = document.getElementsByClassName("score");
+const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon name="ellipse-outline"></ion-icon>`;
+const squareElements = Array.from(document.getElementsByClassName('square'));
+const newGameButton = document.getElementById("newGame"), currPlayerLabel = document.getElementById("currPlayer");
+let currentPlayer, p1Score = 0, p2Score = 0, ties = 0, turnCount = 0;
 
 class Square {
   set(value) {
@@ -47,7 +50,6 @@ class TicTacToe {
   }
 }
 
-const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon name="ellipse-outline"></ion-icon>`;
 let game = new TicTacToe();
 
 function checkWin(board) {
@@ -66,16 +68,12 @@ function checkWin(board) {
   return false;
 }
 
-const scoreElements = document.getElementsByClassName("score");
-
 function addScore(player) {
-	if (player === "X") scoreElements[0].textContent = ++p1;
-	else if (player === "O") scoreElements[2].textContent = ++p2;
-	else scoreElements[1].textContent = ++tie;
+	if (player === "X") scoreElements[0].textContent = ++p1Score;
+	else if (player === "O") scoreElements[2].textContent = ++p2Score;
+	else scoreElements[1].textContent = ++ties;
 }
 
-const squareElements = Array.from(document.getElementsByClassName('square'));
-const newGameButton = document.getElementById("newGame");
 newGameButton.addEventListener('click', () => {
 	newGameButton.style.display = "none";
 	for (const square of squareElements) {
@@ -85,6 +83,8 @@ newGameButton.addEventListener('click', () => {
 	}
 	turnCount = 0;
 	outputLabel.textContent = "Tic-Tac-Toe";
+	currPlayerLabel.innerHTML = "Current player: " + p1Img;
+	currPlayerLabel.removeAttribute("style");
 	game = new TicTacToe();
 });
 
@@ -97,9 +97,11 @@ squareElements.forEach((square, index) => {
     if (turnCount % 2 === 0) {
 			currentPlayer = 'X';
 			playerImg = p1Img;
+			currPlayerLabel.innerHTML = "Current player: " + p2Img;
 		} else {
 			currentPlayer = 'O';
 			playerImg = p2Img;
+			currPlayerLabel.innerHTML = "Current player: " + p1Img;
 		}
 
     square.innerHTML = playerImg;
@@ -108,9 +110,11 @@ squareElements.forEach((square, index) => {
 
 		if (checkWin(game.board)) {
 			for (const square of squareElements) square.disabled = true;
+			currPlayerLabel.style.display = "none";
 			addScore(currentPlayer);
 			newGameButton.removeAttribute("style");
 		} else if (++turnCount === 9) {
+			currPlayerLabel.style.display = "none";
       outputLabel.textContent = "It's a tie!";
 			addScore("tie");
 			newGameButton.removeAttribute("style");

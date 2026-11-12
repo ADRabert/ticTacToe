@@ -10,9 +10,17 @@ body {
 	text-align: center;
 }
 
-h1 {
+h1#output {
+	align-items: center;
+	display: flex;
 	font-size: 400%;
+	justify-content: center;
 	margin: 2px 0;
+}
+
+h1 ion-icon {
+	height: 64px;
+	width: 64px;
 }
 
 div.scores {
@@ -89,6 +97,19 @@ button#newGame {
 	border-radius: 16px;
 	font-size: 200%;
 	font-weight: bold;
-    margin-top: 8px;
+  margin-top: 16px;
 	padding: 8px 16px;
+}
+
+h2#currPlayer {
+	align-items: center;
+	display: flex;
+	font-size: 200%;
+	justify-content: center;
+	margin-top: 16px;
+}
+
+h2#currPlayer ion-icon {
+	height: 64px;
+	width: 64px;
 }
