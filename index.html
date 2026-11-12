@@ -4,29 +4,31 @@
 </head><body>
 	<h1 id="output">Tic-Tac-Toe</h1>
 
-	<div class="top scores">
-		<span>
-			<p>X score:</p>
-			<p class="score">0</p>
-		</span><span id="ties">
-			<p>Ties:</p>
-			<p class="score">0</p>
-		</span><span>
-			<p>O score:</p>
-			<p class="score">0</p>
-		</span>
-	</div>
+	<div id="container">
+		<div class="top scores">
+			<span>
+				<p>X score:</p>
+				<p class="score">0</p>
+			</span><span id="ties">
+				<p>Ties:</p>
+				<p class="score">0</p>
+			</span><span>
+				<p>O score:</p>
+				<p class="score">0</p>
+			</span>
+		</div>
 
-	<div id="board">
-		<button class="square"></button>
-		<button class="square"></button>
-		<button class="square rightSquare"></button>
-		<button class="square"></button>
-		<button class="square"></button>
-		<button class="square rightSquare"></button>
-		<button class="square" id="bottomLeft"></button>
-		<button class="square"></button>
-		<button class="square rightSquare" id="bottomRight"></button>
+		<div id="board">
+			<button class="square"></button>
+			<button class="square"></button>
+			<button class="square rightSquare"></button>
+			<button class="square"></button>
+			<button class="square"></button>
+			<button class="square rightSquare"></button>
+			<button class="square" id="bottomLeft"></button>
+			<button class="square"></button>
+			<button class="square rightSquare" id="bottomRight"></button>
+		</div>
 	</div>
 
 	<button id="newGame" style="display: none;">New Game</button>
