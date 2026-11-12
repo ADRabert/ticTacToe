@@ -20,6 +20,7 @@ h1#output {
 
 h1 ion-icon {
 	height: 64px;
+	margin-right: 8px;
 	width: 64px;
 }
 
@@ -41,7 +42,7 @@ p.score {
 }
 
 div#board {
-    border-radius: 32px;
+  border-radius: 32px;
 	box-shadow: 8px 8px 8px #000;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
@@ -111,5 +112,6 @@ h2#currPlayer {
 
 h2#currPlayer ion-icon {
 	height: 64px;
+	margin-left: 8px;
 	width: 64px;
 }
