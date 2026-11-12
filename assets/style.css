@@ -27,7 +27,7 @@ h1 ion-icon {
 div.scores {
 	align-items: center;
 	background-color: #000;
-	box-shadow: 8px 8px 8px #000;
+	box-shadow: 8px 8px 8px #0000007f;
 	color: #fff;
 	display: inline-flex;
 	height: 128px;
@@ -43,7 +43,7 @@ p.score {
 
 div#board {
   border-radius: 32px;
-	box-shadow: 8px 8px 8px #000;
+	box-shadow: 8px 8px 8px #0000007f;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-self: center;
@@ -72,6 +72,11 @@ button.square:hover {
 	transition: background-color .2s ease;
 }
 
+button.square:active {
+	background-color: #dfdfdf;
+	transition: background-color .1s;
+}
+
 button.square[disabled] {
 	background-color: #fff;
 	color: unset;
@@ -95,11 +100,24 @@ button#bottomRight {
 }
 
 button#newGame {
+	background-color: #efefef;
+	border: 1px solid #000;
 	border-radius: 16px;
+	box-shadow: 8px 8px 8px #0000007f;
 	font-size: 200%;
 	font-weight: bold;
-  margin-top: 16px;
+  margin-top: 24px;
 	padding: 8px 16px;
+}
+
+button#newGame:hover {
+	background-color: #fff;
+	transition: background-color .2s ease;
+}
+
+button#newGame:active {
+	background-color: #dfdfdf;
+	transition: background-color .1s;
 }
 
 h2#currPlayer {
