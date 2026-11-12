@@ -80,8 +80,7 @@ newGameButton.addEventListener('click', () => {
 	newGameButton.style.display = "none";
 	for (const square of squareElements) {
 		square.textContent = '';
-		if (squareElements.indexOf(square) % 3 === 2) square.className = "square rightSquare";
-		else square.className = "square";
+		square.className = squareElements.indexOf(square) % 3 === 2 ? "square rightSquare" : "square";
 		square.disabled = false;
 	}
 	turnCount = 0;
