@@ -1,61 +1,101 @@
 * {
-<<<<<<< HEAD
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-html {
-    background-color: #0072BB;
-}
-body {
-    font-family: sans-serif;
-    text-align: center;
-}
-
-h1 {
-    margin: 16px 0;
-}
-
-#board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
-    width: max-content;   
-    margin: 20px auto;    
-}
-
-.square {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid black;
-    font-size: 300%;
-    cursor: pointer; 
-    width: 128px;
-    height: 128px;
-    background-color: #f0f0f0;
-    border-radius: 80px;
-}
-
-.square:hover {
-    background-color: #FFFFFF;
-    transition: background-color 0.5s ease;
-=======
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
-} body {
+}
+
+body {
+	background-color: burlywood;
 	font-family: sans-serif;
 	text-align: center;
-} h1 {
-	margin-top: 2px;
-} .square {
-	border: 1px solid #000;
-	display: inline-block;
+}
+
+h1 {
+	font-size: 400%;
+	margin: 2px 0;
+}
+
+ion-icons {
+
+}
+
+div.scores {
+	align-items: center;
+	background-color: #000;
+	box-shadow: 16px 16px 16px #000;
+	color: #fff;
+	display: inline-flex;
 	height: 128px;
-	font-size: 64px;
+	justify-content: space-around;
+	justify-self: center;
+	width: 384px;
+}
+
+p.score {
+	font-size: 400%;
+	font-weight: bold;
+}
+
+div#board {
+    border-radius: 0 0 32px 32px;
+	box-shadow: 16px 16px 16px #000;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+    margin: 0 auto;
+	justify-self: center;
+}
+
+span#ties {
+	font-size: 80%;
+}
+
+button.square {
+	overflow: hidden;
+	align-items: center;
+	background-color: #efefef;
+	border: unset;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 800%;
+	justify-content: center;
+	height: 128px;
 	width: 128px;
-} .square:hover {
-	color: #0000007f;
->>>>>>> 77c1d046a8aed22b66f8e99060974b55ff49c732
+}
+
+button.square:hover {
+	background-color: #fff;
+	transition: background-color .2s ease;
+}
+
+button.square[disabled] {
+	background-color: #fff;
+	color: unset;
+	cursor: default;
+}
+
+button.rightSquare {
+	border-right: 1px solid #000;
+}
+
+div.top {
+	border-radius: 32px 32px 0 0;
+}
+
+button#bottomLeft {
+	border-radius: 0 0 0 32px;
+    
+}
+
+button#bottomRight {
+	border-radius: 0 0 32px 0;
+}
+
+button#newGame {
+    margin-top: 20vh;
+	border-radius: 16px;
+	font-size: 200%;
+	font-weight: bold;
+	padding: 8px 16px;
 }
