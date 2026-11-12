@@ -50,7 +50,7 @@ class TicTacToe {
 const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon name="ellipse-outline"></ion-icon>`;
 let game = new TicTacToe();
 
-function checkWin(board, player) {
+function checkWin(board) {
   const winImg = currentPlayer === "X" ? p1Img : p2Img;
 
   if (game.checkDiag(board)) {
@@ -107,7 +107,7 @@ squareElements.forEach((square, index) => {
     game.board[row][col].set(currentPlayer);
 		square.disabled = true;
 
-		if (checkWin(game.board, currentPlayer)) {
+		if (checkWin(game.board)) {
 			for (const square of squareElements) square.disabled = true;
 			addScore(currentPlayer);
 			newGameButton.removeAttribute("style");
