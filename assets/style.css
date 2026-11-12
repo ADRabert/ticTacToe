@@ -10,8 +10,9 @@ body {
 	text-align: center;
 }
 
-ion-icon {
-
+h1 ion-icon {
+	align-items: center;
+	display: inline-flex;
 }
 
 h1 {
