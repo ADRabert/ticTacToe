@@ -51,6 +51,7 @@ div#board {
   border-radius: 32px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
+  margin: 0 auto;
 	justify-self: center;
 }
 
@@ -59,6 +60,7 @@ span#ties {
 }
 
 button.square {
+	overflow: hidden;
 	align-items: center;
 	background-color: #efefef;
 	border: unset;
@@ -67,8 +69,8 @@ button.square {
 	cursor: pointer;
 	display: inline-flex;
 	font-size: 800%;
-	height: 128px;
 	justify-content: center;
+	height: 128px;
 	width: 128px;
 }
 
@@ -97,7 +99,7 @@ div.top {
 }
 
 button#bottomLeft {
-	border-radius: 0 0 0 32px;
+	border-radius: 0 0 0 32px;    
 }
 
 button#bottomRight {
