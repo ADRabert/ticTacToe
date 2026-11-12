@@ -10,19 +10,30 @@ body {
 	text-align: center;
 }
 
-h1 {
+h1#output {
+	align-items: center;
+	display: flex;
 	font-size: 400%;
+	justify-content: center;
 	margin: 2px 0;
 }
 
-ion-icons {
+h1 ion-icon {
+	height: 64px;
+	margin-right: 8px;
+	width: 64px;
+}
 
+div#container {
+	box-shadow: 8px 8px 8px #0000007f;
+	border-radius: 32px;
+	margin: 0 auto;
+	width: fit-content;
 }
 
 div.scores {
 	align-items: center;
 	background-color: #000;
-	box-shadow: 16px 16px 16px #000;
 	color: #fff;
 	display: inline-flex;
 	height: 128px;
@@ -37,11 +48,10 @@ p.score {
 }
 
 div#board {
-    border-radius: 0 0 32px 32px;
-	box-shadow: 16px 16px 16px #000;
+  border-radius: 32px;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-    margin: 0 auto;
+  margin: 0 auto;
 	justify-self: center;
 }
 
@@ -69,6 +79,11 @@ button.square:hover {
 	transition: background-color .2s ease;
 }
 
+button.square:active {
+	background-color: #dfdfdf;
+	transition: background-color .1s;
+}
+
 button.square[disabled] {
 	background-color: #fff;
 	color: unset;
@@ -92,9 +107,37 @@ button#bottomRight {
 }
 
 button#newGame {
-  margin-top: 20vh;
+	background-color: #efefef;
+	border: 1px solid #000;
 	border-radius: 16px;
+	box-shadow: 8px 8px 8px #0000007f;
 	font-size: 200%;
 	font-weight: bold;
+  margin-top: 24px;
 	padding: 8px 16px;
+}
+
+button#newGame:hover {
+	background-color: #fff;
+	cursor: pointer;
+	transition: background-color .2s ease;
+}
+
+button#newGame:active {
+	background-color: #dfdfdf;
+	transition: background-color .1s;
+}
+
+h2#currPlayer {
+	align-items: center;
+	display: flex;
+	font-size: 200%;
+	justify-content: center;
+	margin-top: 16px;
+}
+
+h2#currPlayer ion-icon {
+	height: 64px;
+	margin-left: 8px;
+	width: 64px;
 }
