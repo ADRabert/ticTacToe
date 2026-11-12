@@ -1,8 +1,8 @@
-const outputLabel = document.getElementById('output'), scoreElements = document.getElementsByClassName("score");
+const outputLabel = document.getElementById("output"), scoreElements = document.getElementsByClassName("score");
 const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon name="ellipse-outline"></ion-icon>`;
-const squareElements = Array.from(document.getElementsByClassName('square'));
+const squareElements = Array.from(document.getElementsByClassName("square"));
 const newGameButton = document.getElementById("newGame"), currPlayerLabel = document.getElementById("currPlayer");
-let currentPlayer, p1Score = 0, p2Score = 0, ties = 0, turnCount = 0;
+let player = "X", playerImg, p1Score = 0, p2Score = 0, ties = 0, turnCount = 0;
 
 class Square {
   set(value) {
@@ -17,15 +17,15 @@ class TicTacToe {
       this.board[i] = [];
       for (let j = 0; j < 3; j++) {
         this.board[i][j] = new Square();
-        this.board[i][j].set('');
+        this.board[i][j].set("");
       }
     }
   }
 
   checkDiag(board) {
-    if (board[0][0].value === board[1][1].value && board[1][1].value === board[2][2].value && board[0][0].value !== '') {
+    if (board[0][0].value === board[1][1].value && board[1][1].value === board[2][2].value && board[0][0].value !== "") {
       return true;
-    } else if (board[0][2].value === board[1][1].value && board[1][1].value === board[2][0].value && board[0][2].value !== '') {
+    } else if (board[0][2].value === board[1][1].value && board[1][1].value === board[2][0].value && board[0][2].value !== "") {
       return true;
     }
     return false;
@@ -33,7 +33,7 @@ class TicTacToe {
 
   checkRows(board) {
     for (let i = 0; i < 3; i++) {
-      if (board[i][0].value === board[i][1].value && board[i][1].value === board[i][2].value && board[i][0].value !== '') {
+      if (board[i][0].value === board[i][1].value && board[i][1].value === board[i][2].value && board[i][0].value !== "") {
         return true;
       }
     }
@@ -42,7 +42,7 @@ class TicTacToe {
 
   checkCols(board) {
     for (let i = 0; i < 3; i++) {
-      if (board[0][i].value === board[1][i].value && board[1][i].value === board[2][i].value && board[0][i].value !== '') {
+      if (board[0][i].value === board[1][i].value && board[1][i].value === board[2][i].value && board[0][i].value !== "") {
         return true;
       }
     }
@@ -50,10 +50,8 @@ class TicTacToe {
   }
 }
 
-let game = new TicTacToe();
-
 function checkWin(board) {
-  const winImg = currentPlayer === "X" ? p1Img : p2Img;
+  const winImg = player === "X" ? p1Img : p2Img;
 
   if (game.checkDiag(board)) {
     outputLabel.innerHTML = winImg + " wins by diagonal!";
@@ -74,44 +72,42 @@ function addScore(player) {
 	else scoreElements[1].textContent = ++ties;
 }
 
-newGameButton.addEventListener('click', () => {
+let game = new TicTacToe();
+
+newGameButton.addEventListener("click", () => {
 	newGameButton.style.display = "none";
 	for (const square of squareElements) {
-		square.textContent = '';
-		square.className = squareElements.indexOf(square) % 3 === 2 ? "square rightSquare" : "square";
+		square.textContent = "";
 		square.disabled = false;
 	}
 	turnCount = 0;
 	outputLabel.textContent = "Tic-Tac-Toe";
-	currPlayerLabel.innerHTML = "Current player: " + p1Img;
+  currPlayerLabel.innerHTML = player === "X" ? "Current player: " + p1Img : "Current player: " + p2Img;
 	currPlayerLabel.removeAttribute("style");
 	game = new TicTacToe();
 });
 
 squareElements.forEach((square, index) => {
-  square.addEventListener('click', () => {
+  square.addEventListener("click", () => {
     const row = Math.floor(index / 3), col = index % 3;
 
-    if (square.innerHTML !== '') return;
+    if (square.innerHTML !== "") return;
 
-    if (turnCount % 2 === 0) {
-			currentPlayer = 'X';
-			playerImg = p1Img;
+    if (player === "X") {
+      square.innerHTML = p1Img;
 			currPlayerLabel.innerHTML = "Current player: " + p2Img;
 		} else {
-			currentPlayer = 'O';
-			playerImg = p2Img;
+			square.innerHTML = p2Img;
 			currPlayerLabel.innerHTML = "Current player: " + p1Img;
 		}
 
-    square.innerHTML = playerImg;
-    game.board[row][col].set(currentPlayer);
+    game.board[row][col].set(player);
 		square.disabled = true;
 
 		if (checkWin(game.board)) {
 			for (const square of squareElements) square.disabled = true;
 			currPlayerLabel.style.display = "none";
-			addScore(currentPlayer);
+			addScore(player);
 			newGameButton.removeAttribute("style");
 		} else if (++turnCount === 9) {
 			currPlayerLabel.style.display = "none";
@@ -119,5 +115,7 @@ squareElements.forEach((square, index) => {
 			addScore("tie");
 			newGameButton.removeAttribute("style");
     }
+
+    player = player === "X" ? player = "O" : player = "X";
   });
 });
