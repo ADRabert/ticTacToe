@@ -84,8 +84,7 @@ div.top {
 }
 
 button#bottomLeft {
-	border-radius: 0 0 0 32px;
-    
+	border-radius: 0 0 0 32px;    
 }
 
 button#bottomRight {
@@ -93,7 +92,7 @@ button#bottomRight {
 }
 
 button#newGame {
-    margin-top: 20vh;
+  margin-top: 20vh;
 	border-radius: 16px;
 	font-size: 200%;
 	font-weight: bold;
