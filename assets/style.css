@@ -24,10 +24,16 @@ h1 ion-icon {
 	width: 64px;
 }
 
+div#container {
+	box-shadow: 8px 8px 8px #0000007f;
+	border-radius: 32px;
+	margin: 0 auto;
+	width: fit-content;
+}
+
 div.scores {
 	align-items: center;
 	background-color: #000;
-	box-shadow: 8px 8px 8px #0000007f;
 	color: #fff;
 	display: inline-flex;
 	height: 128px;
@@ -43,7 +49,6 @@ p.score {
 
 div#board {
   border-radius: 32px;
-	box-shadow: 8px 8px 8px #0000007f;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-self: center;
@@ -112,6 +117,7 @@ button#newGame {
 
 button#newGame:hover {
 	background-color: #fff;
+	cursor: pointer;
 	transition: background-color .2s ease;
 }
 
