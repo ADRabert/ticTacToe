@@ -51,19 +51,18 @@ const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon nam
 let game = new TicTacToe();
 
 function checkWin(board, player) {
-	if (currentPlayer === "X") var winImg = p1Img;
-	else var winImg = p2Img;
+	var winImg = player === "X" ? p1Img : p2Img;
 
-  if (game.checkDiag(board)) {
-    outputLabel.innerHTML = winImg + " wins by diagonal!";
-    return true;
-  } else if (game.checkRows(board)) {
-    outputLabel.innerHTML = winImg + " wins by row!";
-    return true;
-  } else if (game.checkCols(board)) {
-    outputLabel.innerHTML = winImg + " wins by column!";
-    return true;
-  }
+    if (game.checkDiag(board)) {
+        outputLabel.innerHTML = winImg + " wins by diagonal!";
+        return true;
+    } else if (game.checkRows(board)) {
+        outputLabel.innerHTML = winImg + " wins by row!";
+        return true;
+    } else if (game.checkCols(board)) {
+        outputLabel.innerHTML = winImg + " wins by column!";
+        return true;
+    }
   return false;
 }
 
@@ -91,31 +90,31 @@ newGameButton.addEventListener('click', () => {
 });
 
 squareElements.forEach((square, index) => {
-  square.addEventListener('click', () => {
-    const row = Math.floor(index / 3), col = index % 3;
+    square.addEventListener('click', () => {
+        const row = Math.floor(index / 3), col = index % 3;
 
-    if (square.innerHTML !== '') return;
+        if (square.innerHTML !== '') return;
 
-    if (turnCount % 2 === 0) {
-			currentPlayer = 'X';
-			playerImg = p1Img;
-		} else {
-			currentPlayer = 'O';
-			playerImg = p2Img;
-		}
+        if (turnCount % 2 === 0) {
+            currentPlayer = 'X';
+            playerImg = p1Img;
+        } else {
+            currentPlayer = 'O';
+            playerImg = p2Img;
+        }
 
-    square.innerHTML = playerImg;
-    game.board[row][col].set(currentPlayer);
-		square.disabled = true;
+        square.innerHTML = playerImg;
+        game.board[row][col].set(currentPlayer);
+        square.disabled = true;
 
-		if (checkWin(game.board, currentPlayer)) {
-			for (const square of squareElements) square.disabled = true;
-			addScore(currentPlayer);
-			newGameButton.removeAttribute("style");
-		} else if (++turnCount === 9) {
-      outputLabel.textContent = "It's a tie!";
-			addScore("tie");
-			newGameButton.removeAttribute("style");
-    }
-  });
+        if (checkWin(game.board, currentPlayer)) {
+            for (const square of squareElements) square.disabled = true;
+            addScore(currentPlayer);
+            newGameButton.removeAttribute("style");
+        } else if (++turnCount === 9) {
+            outputLabel.textContent = "It's a tie!";
+            addScore("tie");
+            newGameButton.removeAttribute("style");
+        }
+    });
 });
