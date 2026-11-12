@@ -20,7 +20,7 @@ h1#output {
 
 h1 ion-icon {
 	height: 64px;
-	margin-right: 8px;
+	margin-right: 16px;
 	width: 64px;
 }
 
@@ -38,8 +38,18 @@ div.scores {
 	display: inline-flex;
 	height: 128px;
 	justify-content: space-around;
-	justify-self: center;
 	width: 384px;
+}
+
+h3 {
+	align-items: center;
+	display: inline-flex;
+}
+
+h3 ion-icon {
+	height: 24px;
+	margin-right: 6px;
+	width: 24px;
 }
 
 p.score {
@@ -60,17 +70,14 @@ span#ties {
 }
 
 button.square {
-	overflow: hidden;
-	align-items: center;
 	background-color: #efefef;
 	border: unset;
 	border-bottom: 1px solid #000;
 	border-left: 1px solid #000;
 	cursor: pointer;
-	display: inline-flex;
 	font-size: 800%;
-	justify-content: center;
 	height: 128px;
+	transition: background-color .2s ease;
 	width: 128px;
 }
 
@@ -88,6 +95,7 @@ button.square[disabled] {
 	background-color: #fff;
 	color: unset;
 	cursor: default;
+	transition: background-color .1s ease;
 }
 
 button.rightSquare {
