@@ -1,54 +1,94 @@
 * {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
 }
 
 body {
-		font-family: sans-serif;
-		text-align: center;
+	background-color: burlywood;
+	font-family: sans-serif;
+	text-align: center;
+}
+
+ion-icon {
+
 }
 
 h1 {
-		margin-top: 2px;
+	font-size: 400%;
+	margin: 2px 0;
 }
 
-#board {
-		display: grid;
-		gap: 2px;
-		grid-template-columns: repeat(3, 1fr);
-		justify-self: center;
-} 
-
-.square {
-		align-items: center;
-		background-color: #efefef;
-		border: 1px solid #000;
-		cursor: pointer;
-		display: flex;
-		font-size: 400%;
-		height: 128px;
-		justify-content: center;
-		width: 128px;
+div#board {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	justify-self: center;
 }
 
-.square:hover {
-		background-color: #fff;
-		transition: background-color .5s ease;
+div.scores {
+	align-items: center;
+	background-color: #000;
+	color: #fff;
+	display: inline-flex;
+	height: 128px;
+	justify-content: space-around;
+	justify-self: center;
+	width: 384px;
 }
 
-.disabled {
-		background-color: #fff;
-		color: unset;
-		cursor: default;
+p.score {
+	font-size: 400%;
+	font-weight: bold;
 }
 
-.scoreText, #newGame {
-		font-size: 200%;
-		font-weight: bold;
+span#ties {
+	font-size: 80%;
 }
 
-#newGame {
-		border-radius: 16px;
-		padding: 8px 16px;
+button.square {
+	align-items: center;
+	background-color: #efefef;
+	border: unset;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	cursor: pointer;
+	display: inline-flex;
+	font-size: 800%;
+	height: 128px;
+	justify-content: center;
+	width: 128px;
+}
+
+button.square:hover {
+	background-color: #fff;
+	transition: background-color .2s ease;
+}
+
+button.square[disabled] {
+	background-color: #fff;
+	color: unset;
+	cursor: default;
+}
+
+button.rightSquare {
+	border-right: 1px solid #000;
+}
+
+div.top {
+	border-radius: 32px 32px 0 0;
+}
+
+button#bottomLeft {
+	border-radius: 0 0 0 32px;
+}
+
+button#bottomRight {
+	border-radius: 0 0 32px 0;
+}
+
+button#newGame {
+	border-radius: 16px;
+	font-size: 200%;
+	font-weight: bold;
+	padding: 8px 16px;
 }
