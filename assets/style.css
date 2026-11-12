@@ -15,14 +15,10 @@ h1 {
 	margin: 2px 0;
 }
 
-ion-icons {
-
-}
-
 div.scores {
 	align-items: center;
 	background-color: #000;
-	box-shadow: 16px 16px 16px #000;
+	box-shadow: 8px 8px 8px #000;
 	color: #fff;
 	display: inline-flex;
 	height: 128px;
@@ -37,7 +33,8 @@ p.score {
 }
 
 div#board {
-	box-shadow: 16px 16px 16px #000;
+    border-radius: 32px;
+	box-shadow: 8px 8px 8px #000;
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	justify-self: center;
@@ -92,5 +89,6 @@ button#newGame {
 	border-radius: 16px;
 	font-size: 200%;
 	font-weight: bold;
+    margin-top: 8px;
 	padding: 8px 16px;
 }

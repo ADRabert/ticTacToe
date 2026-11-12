@@ -51,8 +51,7 @@ const p1Img = `<ion-icon name="close-sharp"></ion-icon>`, p2Img = `<ion-icon nam
 let game = new TicTacToe();
 
 function checkWin(board, player) {
-	if (currentPlayer === "X") var winImg = p1Img;
-	else var winImg = p2Img;
+  const winImg = currentPlayer === "X" ? p1Img : p2Img;
 
   if (game.checkDiag(board)) {
     outputLabel.innerHTML = winImg + " wins by diagonal!";
