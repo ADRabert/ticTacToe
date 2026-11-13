@@ -70,6 +70,8 @@ function addScore(player) {
 	if (player === "X") scoreElements[0].textContent = ++p1Score;
 	else if (player === "O") scoreElements[2].textContent = ++p2Score;
 	else scoreElements[1].textContent = ++ties;
+	currPlayerLabel.style.display = "none";
+	newGameButton.removeAttribute("style");
 }
 
 let game = new TicTacToe();
@@ -99,14 +101,10 @@ squareElements.forEach((square, index) => {
 
 		if (checkWin(game.board)) {
 			for (const square of squareElements) square.disabled = true;
-			currPlayerLabel.style.display = "none";
 			addScore(player);
-			newGameButton.removeAttribute("style");
 		} else if (++turnCount === 9) {
-			currPlayerLabel.style.display = "none";
 			outputLabel.textContent = "It's a tie!";
 			addScore("tie");
-			newGameButton.removeAttribute("style");
 		}
 
 		if (player === "X") {
