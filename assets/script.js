@@ -56,7 +56,12 @@ function checkWin(board) {
 	if (game.checkDiag(board)) {
 		outputLabel.innerHTML = winImg + " wins by diagonal!";
 		return true;
-	} else if (game.checkRows(board)) {
+	}
+	if (game.checkRows(board)) {
+		if (game.checkCols(board)) {
+			outputLabel.innerHTML = winImg + " wins by row & column!";
+			return true;
+		}
 		outputLabel.innerHTML = winImg + " wins by row!";
 		return true;
 	} else if (game.checkCols(board)) {
