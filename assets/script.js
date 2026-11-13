@@ -54,15 +54,14 @@ function checkWin(board) {
 	const winImg = player === "X" ? p1Img : p2Img;
 
 	if (game.checkDiag(board)) {
-		outputLabel.innerHTML = winImg + " wins by diagonal!";
+		if (game.checkRows(board)) outputLabel.innerHTML = winImg + " wins by row & diagonal!";
+		else if (game.checkCols(board)) outputLabel.innerHTML = winImg + " wins by column & diagonal!";
+		else outputLabel.innerHTML = winImg + " wins by diagonal!";
 		return true;
 	}
 	if (game.checkRows(board)) {
-		if (game.checkCols(board)) {
-			outputLabel.innerHTML = winImg + " wins by row & column!";
-			return true;
-		}
-		outputLabel.innerHTML = winImg + " wins by row!";
+		if (game.checkCols(board)) outputLabel.innerHTML = winImg + " wins by row & column!";
+		else outputLabel.innerHTML = winImg + " wins by row!";
 		return true;
 	} else if (game.checkCols(board)) {
 		outputLabel.innerHTML = winImg + " wins by column!";
