@@ -58,16 +58,14 @@ function checkWin(board) {
 		else if (game.checkCols(board)) outputLabel.innerHTML = winImg + " wins by column & diagonal!";
 		else outputLabel.innerHTML = winImg + " wins by diagonal!";
 		return true;
-	}
-	if (game.checkRows(board)) {
+	} else if (game.checkRows(board)) {
 		if (game.checkCols(board)) outputLabel.innerHTML = winImg + " wins by row & column!";
 		else outputLabel.innerHTML = winImg + " wins by row!";
 		return true;
 	} else if (game.checkCols(board)) {
 		outputLabel.innerHTML = winImg + " wins by column!";
 		return true;
-	}
-	return false;
+	} else return false;
 }
 
 function addScore(player) {
