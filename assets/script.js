@@ -92,14 +92,7 @@ squareElements.forEach((square, index) => {
 		const row = Math.floor(index / 3), col = index % 3;
 
 		if (square.innerHTML !== "") return;
-
-		if (player === "X") {
-			square.innerHTML = p1Img;
-			currPlayerLabel.innerHTML = "Current player: " + p2Img;
-		} else {
-			square.innerHTML = p2Img;
-			currPlayerLabel.innerHTML = "Current player: " + p1Img;
-		}
+		else square.innerHTML = player === "X" ? p1Img : p2Img;
 
 		game.board[row][col].set(player);
 		square.disabled = true;
@@ -116,6 +109,12 @@ squareElements.forEach((square, index) => {
 			newGameButton.removeAttribute("style");
 		}
 
-		player = player === "X" ? player = "O" : player = "X";
+		if (player === "X") {
+			player = "O";
+			currPlayerLabel.innerHTML = "Current player: " + p2Img;
+		} else {
+			player = "X";
+			currPlayerLabel.innerHTML = "Current player: " + p1Img;
+		}
 	});
 });
